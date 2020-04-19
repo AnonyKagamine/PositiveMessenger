@@ -1,43 +1,51 @@
 // BoshMessenger, Licensed under WTFPL
-// Author: UMRnInside
+// Author: UMRnInside, Anony Kagamine
+// Anony Kagamine modified this to support custom data.json :)
 
 // will be array
 fortunes = null;
 bosh = null;
 
-function loadData()
+function initDataByJsonText(text) {
+    var jsonobj = JSON.parse();
+    var af, bf, fort;
+    if (jsonobj.after.length * jsonobj.before.length * jsonobj.famous.length < 4096) {
+        alert("FAIL: Cannot make at least 4096 fortunes.");
+        return;
+    }
+    if (jsonobj.bosh.length < 16) {
+        alert("FAIL: The count of bosh should be at least 16.");
+        return;
+    }
+    fortunes = new Array();
+    for (af in jsonobj.after) {
+        for (bf in jsonobj.before) {
+            for (fort in jsonobj.famous) {
+                var as = jsonobj.after[af];
+                var bs = jsonobj.before[bf];
+                var fs = jsonobj.famous[fort];
+                var tstr = fs.replace(/a/, bs).replace(/b/, as);
+                fortunes.push(tstr.replace(/x/g, "这件事"));
+            }
+        }
+    }
+
+    bosh = new Array();
+    for (b in jsonobj.bosh) {
+        var text = jsonobj.bosh[b].replace(/x/g, "这件事");
+        bosh.push(text);
+    }
+}
+
+function loadData(json_url="./data.json")
 {
     var req = new XMLHttpRequest();
-    req.open('GET', './data.json');
+    req.open('GET', json_url);
 
     req.onload = function() {
         if (req.status == 200) {
             //console.log(req.responseText);
-            var jsonobj = JSON.parse(req.responseText);
-            var af, bf, fort;
-            fortunes = new Array();
-
-            for (af in jsonobj.after) 
-            {
-                for (bf in jsonobj.before)
-                {
-                    for (fort in jsonobj.famous)
-                    {
-                        var as = jsonobj.after[af];
-                        var bs = jsonobj.before[bf];
-                        var fs = jsonobj.famous[fort];
-                        var tstr = fs.replace(/a/, bs).replace(/b/, as);
-                        fortunes.push(tstr.replace(/x/g, "这件事"));
-                    }
-                }
-            }
-
-            bosh = new Array();
-            for (b in jsonobj.bosh)
-            {
-                var text = jsonobj.bosh[b].replace(/x/g, "这件事");
-                bosh.push(text);
-            }
+            initDataByJsonText(req.responseText);
         } else {
             console.log("Failed");
         }
