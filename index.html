@@ -2,9 +2,9 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
         <title>BoshMessenger</title>
         <style>
-
 body{
     overflow-x: hidden;
 }
@@ -12,19 +12,22 @@ header>h2{
     text-align: center;
 }
 div.content{
-    display: flex;
-    flex-direction: row;
     justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 div.content>textarea{
-    width: 30em;
-    height: 12em;
+    width: 80%;
+    height: 15em;
     margin: 1em;
 }
 div.content>.buttons{
-    display: flex;
-    flex-direction: column;
     justify-content: space-around;
+}
+div.content>.buttons>button {
+    width: 20%;
+    margin-left: 5em;
+    margin-right: 5em;
 }
 footer{
     text-align: center;
@@ -39,10 +42,10 @@ footer{
             <textarea id="decoded-area" placeholder="Decoded Text Here"></textarea>
             <div class="buttons">
 
-                <button id='encode-btn'>Encode &gt;&gt;</button>
+                <button id='encode-btn'>Encode v</button>
 
 
-                <button id='decode-btn'>&lt;&lt; Decode</button>
+                <button id='decode-btn'>^ Decode</button>
 
             </div>
             <textarea id="encoded-area" placeholder="Encoded Text Here"></textarea>
