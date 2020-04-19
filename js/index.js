@@ -7,7 +7,7 @@ fortunes = null;
 bosh = null;
 
 function initDataByJsonText(text) {
-    var jsonobj = JSON.parse();
+    var jsonobj = JSON.parse(text);
     var af, bf, fort;
     if (jsonobj.after.length * jsonobj.before.length * jsonobj.famous.length < 4096) {
         alert("FAIL: Cannot make at least 4096 fortunes.");
