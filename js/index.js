@@ -76,11 +76,11 @@ function appendBoshDataAlternative(msgdataobj) {
     radio_element.type = "radio"
     radio_element.name = "bosh_version"
     radio_element.value = msgdataobj.url
-    radio_element.appendChild(document.createTextNode(msgdataobj.title))
     radio_element.addEventListener("change", function(){loadData(this.value, true)})
     
     var title_td = document.createElement("td")
-    title_td.appendChild(radio_element);
+    title_td.appendChild(radio_element)
+    title_td.appendChild(document.createTextNode(msgdataobj.title))
     tr_entry.appendChild(title_td)
     
     var provider_td = document.createElement("td")
@@ -88,8 +88,8 @@ function appendBoshDataAlternative(msgdataobj) {
     tr_entry.appendChild(provider_td)
     
     var desc_td = document.createElement("td")
-    desc_td.innerText = msgdataobj.description;
-    tr_entry.appendChild(desc_td);
+    desc_td.innerText = msgdataobj.description
+    tr_entry.appendChild(desc_td)
     
     document.getElementById("boshdata").appendChild(tr_entry)
 }
