@@ -76,7 +76,7 @@ function appendBoshDataAlternative(msgdataobj) {
     radio_element.type = "radio"
     radio_element.name = "bosh_version"
     radio_element.value = msgdataobj.url
-    radio_element.innerText = msgdataobj.title
+    radio_element.appendChild(document.createTextNode(msgdataobj.title))
     radio_element.addEventListener("change", function(){loadData(this.value, true)})
     
     var title_td = document.createElement("td")
