@@ -83,29 +83,31 @@ function appendBoshDataAlternative(msgdataobj) {
     title_td.appendChild(radio_element);
     tr_entry.appendChild(title_td)
     
-    var provider_td = docuemnt.createElement("td")
+    var provider_td = document.createElement("td")
     provider_td.innerText = msgdataobj.provider
     tr_entry.appendChild(provider_td)
     
-    var desc_td = docuemnt.createElement("td")
+    var desc_td = document.createElement("td")
     desc_td.innerText = msgdataobj.description;
     tr_entry.appendChild(desc_td);
     
     document.getElementById("boshdata").appendChild(tr_entry)
 }
+
 function loadMDI(mdi_url="../MessengerDataIndex/index.json") {
-    var req = new XMLHttpRequest();
-    req.open('GET', mdi_url);
+    var req = new XMLHttpRequest()
+    req.open('GET', mdi_url)
     req.onload = function() {
         if (req.status == 200) {
             var md_list = JSON.parse(req.responseText);
-            for (msgdataobj in md_list) {
-                appendBoshDataAlternative(msgdataobj);
+            for (i in md_list) {
+                appendBoshDataAlternative(md_list[i]);
             }
         } else {
             console.log("Load MDI Failed:", req.status);
         }
-    };
+    }
+    xhr.send()
 }
 
 loadData();
