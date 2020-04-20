@@ -2,7 +2,9 @@
 正能量信使，能够用正能量的话语承载二进制数据。
 感谢 [menzi11/BullshitGenerator](https://github.com/menzi11/BullshitGenerator) 以及 [UMRnInside/BoshMessenger](https://github.com/UMRnInside/BoshMessenger)
 
-[网页版](https://anonykagamine.github.io/PositiveMessenger/)
+[网页版](https://anonykagamine.github.io/PositiveMessenger/) 现已开放 `data.json` 版本选择。
+
+[高 雅 创 作 通 道](https://github.com/AnonyKagamine/MessengerData)
 
 ## Usage
 `boshencode.py` 和 `boshdecode.py` 都从标准输入 `stdin` 读取数据、从标准输出 `stdout` 输出结果。
