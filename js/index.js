@@ -107,7 +107,7 @@ function loadMDI(mdi_url="../MessengerDataIndex/index.json") {
             console.log("Load MDI Failed:", req.status);
         }
     }
-    xhr.send()
+    req.send()
 }
 
 loadData();
