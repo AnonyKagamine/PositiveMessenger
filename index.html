@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <title>BoshMessenger</title>
+        <title>PositiveMessenger</title>
         <style>
 body{
     overflow-x: hidden;
@@ -41,15 +41,18 @@ footer{
         <div class="content">
             <textarea id="decoded-area" placeholder="Decoded Text Here"></textarea>
             <div class="buttons">
-
                 <button id='encode-btn'>Encode v</button>
-
-
                 <button id='decode-btn'>^ Decode</button>
-
             </div>
             <textarea id="encoded-area" placeholder="Encoded Text Here"></textarea>
         </div>
+        <table border="1" id="boshdata">
+            <tr>
+                <th>Version</th>
+                <th>Provider</th>
+                <th>Description</th>
+            </tr>
+        </table>
         <footer>
             <p>Inspired by: </p>
             <a href="https://github.com/menzi11/BullshitGenerator">menzi11/BullshitGenerator</a><p></p>
